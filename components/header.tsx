@@ -60,13 +60,13 @@ export function Header() {
 
       <div className="flex items-center justify-end space-x-2">
         <Image
-          src="/asp-white.png"
+          src="/logo.png"
           alt="logo"
           width={60}
           height={60}
           className='rounded-2xl border-2 border-white p-2'
         />
-        <span className="hidden md:block font-bold text-xl text-orange-600 hover:text-blue-800 transition duration-300 ease-in-out transform hover:scale-105">
+        <span className="hidden md:block font-bold text-xl gradient-text">
           Assistant Services Publiques
         </span>
       </div>

@@ -1,71 +1,75 @@
 <a href="https://chat.vercel.ai/">
-  <img alt="Next.js 14 and App Router-ready AI chatbot." src="https://chat.vercel.ai/opengraph-image.png">
-  <h1 align="center">Next.js AI Chatbot</h1>
+<img alt="Assistant de Service Public - Bénin" src="./img/image.png">
+<h1 align="center">Assistant de Service Public - Bénin</h1>
 </a>
 
 <p align="center">
-  An open-source AI chatbot app template built with Next.js, the Vercel AI SDK, OpenAI, and Vercel KV.
+Un assistant de service public utilisant l'IA, développé avec Next.js, et entraîné sur les données des services publics du Bénin, dans le cadre de la deuxième édition de l'Africa Tech Up Tour.
 </p>
 
 <p align="center">
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#model-providers"><strong>Model Providers</strong></a> ·
-  <a href="#deploy-your-own"><strong>Deploy Your Own</strong></a> ·
-  <a href="#running-locally"><strong>Running locally</strong></a> ·
-  <a href="#authors"><strong>Authors</strong></a>
+<a href="#fonctionnalités"><strong>Fonctionnalités</strong></a> ·
+<a href="#modèles-dapprentissage"><strong>Modèles d'apprentissage</strong></a> ·
+<a href="#déploiement"><strong>Déploiement</strong></a> ·
+<a href="#exécution-locale"><strong>Exécution locale</strong></a> ·
+<a href="#auteurs"><strong>Auteurs</strong></a>
 </p>
 <br/>
 
-## Features
+## Fonctionnalités
 
-- [Next.js](https://nextjs.org) App Router
-- React Server Components (RSCs), Suspense, and Server Actions
-- [Vercel AI SDK](https://sdk.vercel.ai/docs) for streaming chat UI
-- Support for OpenAI (default), Anthropic, Cohere, Hugging Face, or custom AI chat models and/or LangChain
-- [shadcn/ui](https://ui.shadcn.com)
-  - Styling with [Tailwind CSS](https://tailwindcss.com)
-  - [Radix UI](https://radix-ui.com) for headless component primitives
-  - Icons from [Phosphor Icons](https://phosphoricons.com)
-- Chat History, rate limiting, and session storage with [Vercel KV](https://vercel.com/storage/kv)
-- [NextAuth.js](https://github.com/nextauthjs/next-auth) for authentication
+- [Next.js](https://nextjs.org) pour le routage et le rendu côté serveur
+- Composants du serveur React (RSC), Suspense, et actions du serveur pour une gestion optimale des requêtes
+- Prise en charge des modèles IA personnalisés, entraînés sur les données des services publics du Bénin
+- [Tailwind CSS](https://tailwindcss.com) pour le style et la mise en page
+- Icônes fournies par [Phosphor Icons](https://phosphoricons.com)
+- Historique des conversations et stockage des sessions avec une base de données personnalisée
+- Authentification avec [NextAuth.js](https://github.com/nextauthjs/next-auth)
 
-## Model Providers
+## Modèles d'apprentissage
 
-This template ships with OpenAI `gpt-3.5-turbo` as the default. However, thanks to the [Vercel AI SDK](https://sdk.vercel.ai/docs), you can switch LLM providers to [Anthropic](https://anthropic.com), [Cohere](https://cohere.com/), [Hugging Face](https://huggingface.co), or using [LangChain](https://js.langchain.com) with just a few lines of code.
+Le projet utilise un modèle IA personnalisé, entraîné sur un ensemble de données provenant des services publics du Bénin. Ce modèle a été conçu pour répondre aux questions spécifiques sur les services publics, fournir des informations à jour, et améliorer l'accès aux services gouvernementaux.
 
-## Deploy Your Own
+Vous pouvez également intégrer d'autres fournisseurs de modèles ou ajuster le modèle actuel pour répondre à des besoins spécifiques.
 
-You can deploy your own version of the Next.js AI Chatbot to Vercel with one click:
+<!-- ## Déploiement
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?demo-title=Next.js+Chat&demo-description=A+full-featured%2C+hackable+Next.js+AI+chatbot+built+by+Vercel+Labs&demo-url=https%3A%2F%2Fchat.vercel.ai%2F&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F4aVPvWuTmBvzM5cEdRdqeW%2F4234f9baf160f68ffb385a43c3527645%2FCleanShot_2023-06-16_at_17.09.21.png&project-name=Next.js+Chat&repository-name=nextjs-chat&repository-url=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fai-chatbot&from=templates&skippable-integrations=1&env=OPENAI_API_KEY%2CAUTH_SECRET&envDescription=How+to+get+these+env+vars&envLink=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fai-chatbot%2Fblob%2Fmain%2F.env.example&teamCreateStatus=hidden&stores=[{"type":"kv"}])
+Déployez votre propre version de l'assistant de service public sur Vercel en un seul clic :
 
-## Creating a KV Database Instance
+[![Déployer avec Vercel](https://vercel.com/button)](https://vercel.com/new/clone?project-name=assistant-service-public&repository-name=assistant-service-public-benin&repository-url=https%3A%2F%2Fgithub.com%2Fvotre-repo%2Fassistant-service-public-benin&from=templates&env=OPENAI_API_KEY%2CAUTH_SECRET&envDescription=Comment+obtenir+ces+variables+d'environnement&envLink=https%3A%2F%2Fgithub.com%2Fvotre-repo%2Fassistant-service-public-benin%2Fblob%2Fmain%2F.env.example&teamCreateStatus=hidden) -->
 
-Follow the steps outlined in the [quick start guide](https://vercel.com/docs/storage/vercel-kv/quickstart#create-a-kv-database) provided by Vercel. This guide will assist you in creating and configuring your KV database instance on Vercel, enabling your application to interact with it.
+## Exécution locale
 
-Remember to update your environment variables (`KV_URL`, `KV_REST_API_URL`, `KV_REST_API_TOKEN`, `KV_REST_API_READ_ONLY_TOKEN`) in the `.env` file with the appropriate credentials provided during the KV database setup.
+Pour exécuter l'assistant de service public localement, vous devrez utiliser les variables d'environnement définies dans .env.example. Il est recommandé d'utiliser [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) pour gérer ces variables, mais un fichier .env est suffisant pour le développement local.
 
-## Running locally
+> *Remarque* : Ne commitez pas votre fichier .env, car il contient des informations sensibles.
 
-You will need to use the environment variables [defined in `.env.example`](.env.example) to run Next.js AI Chatbot. It's recommended you use [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) for this, but a `.env` file is all that is necessary.
+1. Installez Vercel CLI : npm i -g vercel
+2. Liez l'instance locale à votre projet Vercel : vercel link
+3. Téléchargez vos variables d'environnement : vercel env pull
 
-> Note: You should not commit your `.env` file or it will expose secrets that will allow others to control access to your various OpenAI and authentication provider accounts.
+bash
+npm install
+npm run dev
 
-1. Install Vercel CLI: `npm i -g vercel`
-2. Link local instance with Vercel and GitHub accounts (creates `.vercel` directory): `vercel link`
-3. Download your environment variables: `vercel env pull`
 
-```bash
-pnpm install
-pnpm dev
-```
+Votre application devrait maintenant être accessible à l'adresse [localhost:3000](http://localhost:3000/).
 
-Your app template should now be running on [localhost:3000](http://localhost:3000/).
+## Auteurs
 
-## Authors
+Ce projet a été développé par une équipe de data scientists issus du Bénin, du Burkina Faso, et du Togo, dans le cadre de la deuxième édition de l'Africa Tech Up Tour. Notre objectif est de faciliter l'accès aux services publics au Bénin grâce à l'intelligence artificielle.
 
-This library is created by [Vercel](https://vercel.com) and [Next.js](https://nextjs.org) team members, with contributions from:
-
-- Jared Palmer ([@jaredpalmer](https://twitter.com/jaredpalmer)) - [Vercel](https://vercel.com)
-- Shu Ding ([@shuding\_](https://twitter.com/shuding_)) - [Vercel](https://vercel.com)
-- shadcn ([@shadcn](https://twitter.com/shadcn)) - [Vercel](https://vercel.com)
+* *Membres de l'équipe* :
+  * **[Ghilth GBAGUIDI]( https://www.linkedin.com/in/ghilth)** - Contributeur, Bénin
+  * **[OUEDRAOGO WENDTOIN ISSAKA]( https://www.linkedin.com/in/wendtoinissaka)** - Contributeur, Burkina Faso
+  * **[Roland AMOUSSOU](https://www.linkedin.com/in/roland-amoussou-88aab613a)** - Contributeur, Bénin
+  * **[Azonvidé Hubert DOSSA](https://www.linkedin.com/in/azonvid%C3%A9-hubert-dossa-aa57bb1a1)** - Contributeur, Bénin
+  * **[LOKONON Jérémie](https://www.linkedin.com/in/jérémie-lokonon-176820225)** - Contributeur, Bénin
+  * **[BORNA Yannis](https://www.linkedin.com/in/yannis-borna-181049269)** - Contributeur, Bénin
+  * **[Léonel VODOUNOU](https://www.linkedin.com/in/léonel-junior-vodounou-7864b0210)** - Contributeur, Bénin
+  * **[AKANHO Naofal](https://www.linkedin.com/in/naofal-akanho-642179213/)** - Contributeur, Bénin
+  * **[OUSSA Donatien](https://www.linkedin.com/in/donatien-oussa-80269b268/)** - Contributeur, Bénin
+  * **[GANDONOU Pamela](https://www.linkedin.com/in/pamela-gandonou-b6986a265)** - Contributeur, Bénin
+  * **[HOUNTON Johannes](https://www.linkedin.com/in/johannes-hounton-a87954271)** - Contributeur, Bénin
+  * **[MINABA Carine](https://www.linkedin.com/in/carine-minaba-116433280/)** - Contributeur, Bénin
+  * **[ABOUDOU ALI Faoziath](https://www.linkedin.com/in/faoziath-aboudou-ali)** - Contributeur, Bénin
