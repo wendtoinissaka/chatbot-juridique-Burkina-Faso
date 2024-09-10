@@ -131,9 +131,10 @@ async function submitUserMessage(content: string) {
   let textStream: undefined | ReturnType<typeof createStreamableValue<string>>;
   let textNode: undefined | React.ReactNode;
 
+
   try {
     // Envoyer le message au serveur FastAPI
-    const response = await axios.post('http://localhost:8000/chatbot/', { message: content });
+    const response = await axios.post(`${process.env.API_BASE_URL}/chatbot/`, { message: content });
 
     const { data } = response;
     console.log("CONSOLE RESULT", response )
@@ -167,7 +168,7 @@ async function submitUserMessage(content: string) {
       display: textNode
     };
   } catch (error) {
-    console.error('Error fetching response from FastAPI:', error);
+    console.error('Echec de connection:', error);
 
     // Gérer les erreurs de manière appropriée
     aiState.done({
