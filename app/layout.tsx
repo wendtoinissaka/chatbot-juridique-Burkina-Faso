@@ -15,7 +15,7 @@ export const metadata = {
     : undefined,
   title: {
     default: 'Assistant Service Publique',
-    template: `%s - Chatbot`
+    template: `%s - ASP`
   },
   description: 'Un Assistant pour les services publiques du Bénin',
   icons: {

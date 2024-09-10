@@ -16,6 +16,7 @@ import { SidebarToggle } from './sidebar-toggle'
 import { ChatHistory } from './chat-history'
 import { Session } from '@/lib/types'
 import Image from 'next/image'
+import { Countries } from './Countries'
 
 async function UserOrLogin() {
   const session = (await auth()) as Session
@@ -56,15 +57,22 @@ export function Header() {
           <UserOrLogin />
         </React.Suspense>
       </div>
-      
+
       <div className="flex items-center justify-end space-x-2">
         <Image
-          src="/logo.webp"
+          src="/asp-white.png"
           alt="logo"
           width={60}
           height={60}
-          className='rounded-full p-2'
-        /> République du Bénin
+          className='rounded-2xl border-2 border-white p-2'
+        />
+        <span className="hidden md:block font-bold text-xl text-orange-600 hover:text-blue-800 transition duration-300 ease-in-out transform hover:scale-105">
+          Assistant Services Publiques
+        </span>
+      </div>
+      
+      <div className="flex items-center justify-end space-x-2">
+        <Countries />
       </div>
     </header>
   )

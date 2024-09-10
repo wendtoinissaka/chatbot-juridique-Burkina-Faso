@@ -19,6 +19,8 @@ import {
   Purchase
 } from '@/components/stocks'
 
+import axios from 'axios';
+
 import { z } from 'zod'
 import { EventsSkeleton } from '@/components/stocks/events-skeleton'
 import { Events } from '@/components/stocks/events'
@@ -106,7 +108,89 @@ async function confirmPurchase(symbol: string, price: number, amount: number) {
   }
 }
 
+
+
 async function submitUserMessage(content: string) {
+  'use server';
+
+  const aiState = getMutableAIState<typeof AI>();
+
+  // Ajouter le message de l'utilisateur à l'état
+  aiState.update({
+    ...aiState.get(),
+    messages: [
+      ...aiState.get().messages,
+      {
+        id: nanoid(),
+        role: 'user',
+        content
+      }
+    ]
+  });
+
+  let textStream: undefined | ReturnType<typeof createStreamableValue<string>>;
+  let textNode: undefined | React.ReactNode;
+
+  try {
+    // Envoyer le message au serveur FastAPI
+    const response = await axios.post('http://localhost:8000/chatbot/', { message: content });
+
+    const { data } = response;
+    console.log("CONSOLE RESULT", response )
+    const { response: aiResponse } = data; // La réponse du serveur devrait contenir le champ `response`
+
+    // Mettre à jour l'état du chatbot avec la réponse
+    aiState.done({
+      ...aiState.get(),
+      messages: [
+        ...aiState.get().messages,
+        {
+          id: nanoid(),
+          role: 'assistant',
+          content: aiResponse
+        }
+      ]
+    });
+
+    // Créer le nœud de texte si ce n'est pas déjà fait
+    if (!textStream) {
+      textStream = createStreamableValue('');
+      textNode = <BotMessage content={textStream.value} />;
+    }
+
+    // Mettre à jour le texte du stream
+    textStream.update(aiResponse);
+
+    // Renvoyer la réponse au composant
+    return {
+      id: nanoid(),
+      display: textNode
+    };
+  } catch (error) {
+    console.error('Error fetching response from FastAPI:', error);
+
+    // Gérer les erreurs de manière appropriée
+    aiState.done({
+      ...aiState.get(),
+      messages: [
+        ...aiState.get().messages,
+        {
+          id: nanoid(),
+          role: 'assistant',
+          content: 'Une erreur est survenue. Veuillez réessayer.'
+        }
+      ]
+    });
+
+    return {
+      id: nanoid(),
+      display: <BotMessage content="Une erreur est survenue. Veuillez réessayer." />
+    };
+  }
+}
+
+
+async function submitUserMessage2(content: string) {
   'use server'
 
   const aiState = getMutableAIState<typeof AI>()
