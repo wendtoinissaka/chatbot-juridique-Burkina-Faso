@@ -67,7 +67,7 @@ export function Header() {
           className='rounded-2xl border-2 border-white p-2'
         />
         <span className="hidden md:block font-bold text-xl gradient-text">
-          Assistant Services Publiques
+          Assistant Services Publics
         </span>
       </div>
       

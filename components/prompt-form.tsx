@@ -61,8 +61,11 @@ export function PromptForm({
           }
         ])
 
+        let i = 0; 
+
         // Submit and get response message
-        const responseMessage = await submitUserMessage(value)
+        const responseMessage = await submitUserMessage(value, i)
+
         setMessages(currentMessages => [...currentMessages, responseMessage])
       }}
     >
@@ -88,7 +91,7 @@ export function PromptForm({
           tabIndex={0}
           onKeyDown={onKeyDown}
           placeholder="Posez une question"
-          className="min-h-[60px] w-full resize-none bg-transparent px-4 py-[1.3rem] focus-within:outline-none sm:text-sm"
+          className="min-h-[60px] w-full resize-none bg-transparent px-4 py-[1.3rem] focus-within:outline-none sm:text-sm "
           autoFocus
           spellCheck={false}
           autoComplete="off"

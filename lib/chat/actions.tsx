@@ -110,11 +110,11 @@ async function confirmPurchase(symbol: string, price: number, amount: number) {
 
 
 
-async function submitUserMessage(content: string) {
+async function submitUserMessage(content: string, questionNumber?:number) {
   'use server';
 
   const aiState = getMutableAIState<typeof AI>();
-
+  
   // Ajouter le message de l'utilisateur à l'état
   aiState.update({
     ...aiState.get(),
@@ -131,15 +131,13 @@ async function submitUserMessage(content: string) {
   let textStream: undefined | ReturnType<typeof createStreamableValue<string>>;
   let textNode: undefined | React.ReactNode;
 
-
-
   try {
     // Envoyer le message au serveur FastAPI
     const response = await axios.post(`${process.env.API_BASE_URL}/chatbot/`, { message: content });
 
     const { data } = response;
     console.log("CONSOLE RESULT", response )
-    const { response: aiResponse } = data; // La réponse du serveur devrait contenir le champ `response`
+    const { response: aiResponse } = data   //La réponse du serveur devrait contenir le champ `response`
 
     // Mettre à jour l'état du chatbot avec la réponse
     aiState.done({
@@ -149,7 +147,7 @@ async function submitUserMessage(content: string) {
         {
           id: nanoid(),
           role: 'assistant',
-          content: aiResponse
+          content:  aiResponse
         }
       ]
     });
@@ -190,6 +188,7 @@ async function submitUserMessage(content: string) {
     };
   }
 }
+
 
 
 async function submitUserMessage2(content: string) {
