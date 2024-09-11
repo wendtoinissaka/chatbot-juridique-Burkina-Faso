@@ -87,6 +87,8 @@ export function ChatPanel({
                     example.message
                   )
 
+                  
+
                   setMessages(currentMessages => [
                     ...currentMessages,
                     responseMessage

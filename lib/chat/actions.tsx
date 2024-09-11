@@ -132,6 +132,7 @@ async function submitUserMessage(content: string) {
   let textNode: undefined | React.ReactNode;
 
 
+
   try {
     // Envoyer le message au serveur FastAPI
     const response = await axios.post(`${process.env.API_BASE_URL}/chatbot/`, { message: content });
@@ -178,7 +179,7 @@ async function submitUserMessage(content: string) {
         {
           id: nanoid(),
           role: 'assistant',
-          content: 'Une erreur est survenue. Veuillez réessayer.'
+          content: 'Erreur de connection'
         }
       ]
     });
