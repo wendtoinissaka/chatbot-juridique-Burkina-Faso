@@ -4,6 +4,7 @@ import { Session } from '@/lib/types'
 import Link from 'next/link'
 import { ExclamationTriangleIcon } from '@radix-ui/react-icons'
 import AnimatedText from './animated-text'
+import { extractTextFromReactNode } from '@/utils/extractTextFromReactNode'
 
 export interface ChatList {
   messages: UIState
@@ -15,6 +16,7 @@ export function ChatList({ messages, session, isShared }: ChatList) {
   if (!messages.length) {
     return null
   }
+
 
   return (
     <div className="relative mx-auto max-w-2xl px-4">
@@ -46,7 +48,7 @@ export function ChatList({ messages, session, isShared }: ChatList) {
         <>
           <div key={message.id}>
             {message.display}
-            {/* <AnimatedText text={message.display} /> */}
+            {/* <AnimatedText text={extractTextFromReactNode(message.display)} /> */}
             {index < messages.length - 1 && <Separator className="my-4" />}
           </div>
         </>

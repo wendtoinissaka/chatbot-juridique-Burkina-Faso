@@ -36,24 +36,24 @@ export function ChatPanel({
 
   const exampleMessages = [
     {
-      "heading": "Les services publiques",
-      "subheading": "services publics disponibles aujourd'hui ?",
-      "message": "Quels sont les services publics disponibles aujourd'hui ?"
+      "heading": "Acte de naissance sécurisé",
+      "subheading": "Comment obtenir mon acte de naissance sécurisé ?",
+      "message": "Quelles sont les étapes pour obtenir l'acte de naissance sécurisé ?"
     },
     {
-      "heading": "Carte d'identité nationale",
-      "subheading": "une carte d'identité nationale au Bénin ?",
-      "message": "Comment obtenir une carte d'identité nationale au Bénin ?"
+      "heading": "Permis de conduire",
+      "subheading": "Quelles sont les étapes pour obtenir le permis ?",
+      "message": "Étapes pour avoir le permis de conduire"
     },
     {
       "heading": "Mon passeport",
-      "subheading": "renouveler mon passeport",
+      "subheading": "Étapes pour renouveler mon passeport",
       "message": "Je voudrais prendre un rendez-vous pour renouveler mon passeport"
     },
     {
-      "heading": "Le permis de conduire",
-      "subheading": "documents nécessaires pour le permis de conduire ?",
-      "message": "Quels sont les documents nécessaires pour le permis de conduire ?"
+      "heading": "Acte de naissance pour un nouveau né",
+      "subheading": "Comment établir un acte de naissance pour un nouveau né ?",
+      "message": "Quels sont les documents nécessaires pour établir un acte de naissance pour un nouveau né"
     }
   ]
 
@@ -86,8 +86,6 @@ export function ChatPanel({
                   const responseMessage = await submitUserMessage(
                     example.message
                   )
-
-                  
 
                   setMessages(currentMessages => [
                     ...currentMessages,

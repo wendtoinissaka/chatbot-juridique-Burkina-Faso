@@ -71,9 +71,9 @@ export function Header() {
         </span>
       </div>
       
-      <div className="flex items-center justify-end space-x-2">
+      {/* <div className="flex items-center justify-end space-x-2">
         <Countries />
-      </div>
+      </div> */}
     </header>
   )
 }
