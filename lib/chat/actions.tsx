@@ -133,11 +133,17 @@ async function submitUserMessage(content: string, questionNumber?:number) {
 
   try {
     // Envoyer le message au serveur FastAPI
-    const response = await axios.post(`${process.env.API_BASE_URL}/chatbot/`, { message: content });
+    console.log("**************************************");
+    console.log("Contenu du message envoyé :", content);
+    console.log("**************************************");
+    const response = await axios.post(`${process.env.API_BASE_URL}/question`, { question: content });
+    console.log("**************************************");
+    console.log("Contenu du message envoyé :", content);
+    console.log("**************************************");
 
     const { data } = response;
     console.log("CONSOLE RESULT", response )
-    const { response: aiResponse } = data   //La réponse du serveur devrait contenir le champ `response`
+    const { message: aiResponse } = data   //La réponse du serveur devrait contenir le champ `response`
 
     // Mettre à jour l'état du chatbot avec la réponse
     aiState.done({
@@ -167,7 +173,10 @@ async function submitUserMessage(content: string, questionNumber?:number) {
       display: textNode
     };
   } catch (error) {
+    console.error('---------------------------------------------------------');
     console.error('Echec de connection:', error);
+    console.error('---------------------------------------------------------');
+    
 
     // Gérer les erreurs de manière appropriée
     aiState.done({
@@ -188,6 +197,111 @@ async function submitUserMessage(content: string, questionNumber?:number) {
     };
   }
 }
+
+
+// async function submitUserMessage(content: string, questionNumber?: number) {
+//   'use server';
+
+//   const aiState = getMutableAIState<typeof AI>();
+
+//   // Ajouter le message de l'utilisateur à l'état
+//   aiState.update({
+//     ...aiState.get(),
+//     messages: [
+//       ...aiState.get().messages,
+//       {
+//         id: nanoid(),
+//         role: 'user',
+//         content
+//       }
+//     ]
+//   });
+
+//   let textStream: undefined | ReturnType<typeof createStreamableValue<string>>;
+//   let textNode: undefined | React.ReactNode;
+
+//   try {
+//     // Utiliser EventSource pour gérer le streaming
+//     const eventSource = new EventSource(`${process.env.API_BASE_URL}/chatbot_stream/`);
+
+//     // Créer le nœud de texte si ce n'est pas déjà fait
+//     if (!textStream) {
+//       textStream = createStreamableValue('');
+//       textNode = <BotMessage content={textStream.value} />;
+//     }
+
+//     // Écouter les événements de message envoyés par le serveur
+//     eventSource.onmessage = (event) => {
+//       const aiResponse = event.data;
+
+//       // Mettre à jour le texte du stream au fur et à mesure
+//       textStream.update(aiResponse);
+
+//       // Mettre à jour l'état du chatbot avec la réponse partielle
+//       aiState.update({
+//         ...aiState.get(),
+//         messages: [
+//           ...aiState.get().messages,
+//           {
+//             id: nanoid(),
+//             role: 'assistant',
+//             content: aiResponse
+//           }
+//         ]
+//       });
+//     };
+
+//     // Gérer les erreurs de connexion
+//     eventSource.onerror = (error) => {
+//       console.error('Échec de la connexion au streaming:', error);
+//       aiState.update({
+//         ...aiState.get(),
+//         messages: [
+//           ...aiState.get().messages,
+//           {
+//             id: nanoid(),
+//             role: 'assistant',
+//             content: 'Erreur de connexion'
+//           }
+//         ]
+//       });
+
+//       // Fermer la connexion en cas d'erreur
+//       eventSource.close();
+//     };
+
+//     // Fermer la connexion lorsque le serveur ferme le streaming
+//     eventSource.onclose = () => {
+//       console.log("Le serveur a fermé la connexion.");
+//     };
+
+//     // Renvoyer la réponse au composant
+//     return {
+//       id: nanoid(),
+//       display: textNode
+//     };
+//   } catch (error) {
+//     console.error('Erreur lors de l\'envoi du message:', error);
+
+//     // Gérer les erreurs en cas d'échec de la connexion
+//     aiState.done({
+//       ...aiState.get(),
+//       messages: [
+//         ...aiState.get().messages,
+//         {
+//           id: nanoid(),
+//           role: 'assistant',
+//           content: 'Une erreur est survenue. Veuillez réessayer.'
+//         }
+//       ]
+//     });
+
+//     return {
+//       id: nanoid(),
+//       display: <BotMessage content="Une erreur est survenue. Veuillez réessayer." />
+//     };
+//   }
+// }
 
 
 
