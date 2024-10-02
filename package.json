@@ -2,11 +2,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "pnpm install --no-frozen-lockfile && pnpm build",
+    "build": "pnpm build",
     "start": "next start",
     "type-check": "tsc --noEmit",
     "format:write": "prettier --write \"{app,lib,components}/**/*.{ts,tsx,mdx}\" --cache",
-    "format:check": "prettier --check \"{app,lib,components}**/*.{ts,tsx,mdx}\" --cache"
+    "format:check": "prettier --check \"{app,lib,components}/**/*.{ts,tsx,mdx}\" --cache"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.53",
