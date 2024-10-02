@@ -47,13 +47,13 @@ export function ChatPanel({
     },
     {
       "heading": "Mon passeport",
-      "subheading": "Étapes pour renouveler mon passeport",
-      "message": "Je voudrais prendre un rendez-vous pour renouveler mon passeport"
+      "subheading": "Comment obtenir un passeport au Burkina Faso?",
+      "message": "Comment obtenir un passeport au Burkina Faso?"
     },
     {
-      "heading": "Acte de naissance pour un nouveau né",
-      "subheading": "Comment établir un acte de naissance pour un nouveau né ?",
-      "message": "Quels sont les documents nécessaires pour établir un acte de naissance pour un nouveau né"
+      "heading": "Porter Plainte ?",
+      "subheading": "Comment puis-je porter plainte ?",
+      "message": "Comment puis-je porter plainte ?"
     }
   ]
 

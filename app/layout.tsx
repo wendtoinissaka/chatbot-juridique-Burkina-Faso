@@ -14,10 +14,10 @@ export const metadata = {
     ? new URL(`https://${process.env.VERCEL_URL}`)
     : undefined,
   title: {
-    default: 'Assistant Service Publique',
-    template: `%s - ASP`
+    default: 'Chatbot des Droits et Lois du Burkina Faso!',
+    template: `%s - Veen Maan`
   },
-  description: 'Un Assistant pour les services publiques du Bénin',
+  description: 'Chatbot des Droits et Lois du Burkina Faso!',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',

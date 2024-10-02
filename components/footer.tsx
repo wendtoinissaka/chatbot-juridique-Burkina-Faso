@@ -12,8 +12,8 @@ export function FooterText({ className, ...props }: React.ComponentProps<'p'>) {
       )}
       {...props}
     >
-      Créer dans le cadre du programme{' '}
-      <ExternalLink href="https://www.linkedin.com/company/africatechuptour?originalSubdomain=ci">ATUT 2024</ExternalLink> par l'équipe Xandy.
+      Wendtoin Issaka OUEDRAOGO{' '}
+      <ExternalLink href="https://www.linkedin.com/wendtoinissaka">/ Nous contacter</ExternalLink>.
     </p>
   )
 }

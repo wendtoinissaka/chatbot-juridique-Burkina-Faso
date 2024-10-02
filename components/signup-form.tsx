@@ -73,7 +73,7 @@ export default function SignupForm() {
         <LoginButton />
       </div>
 
-      <Link href="/login" className="flex flex-row gap-1 text-sm text-zinc-400">
+      <Link href="  " className="flex flex-row gap-1 text-sm text-zinc-400">
         Avez-vous déjà un compte ?
         <div className="font-semibold underline">Se connecter</div>
       </Link>

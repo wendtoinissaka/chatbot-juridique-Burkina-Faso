@@ -60,16 +60,5 @@ Votre application devrait maintenant être accessible à l'adresse [localhost:30
 Ce projet a été développé par une équipe de data scientists issus du Bénin, du Burkina Faso, et du Togo, dans le cadre de la deuxième édition de l'Africa Tech Up Tour. Notre objectif est de faciliter l'accès aux services publics au Bénin grâce à l'intelligence artificielle.
 
 * *Membres de l'équipe* :
-  * **[Ghilth GBAGUIDI]( https://www.linkedin.com/in/ghilth)** - Contributeur, Bénin
   * **[OUEDRAOGO WENDTOIN ISSAKA]( https://www.linkedin.com/in/wendtoinissaka)** - Contributeur, Burkina Faso
-  * **[Roland AMOUSSOU](https://www.linkedin.com/in/roland-amoussou-88aab613a)** - Contributeur, Bénin
-  * **[Azonvidé Hubert DOSSA](https://www.linkedin.com/in/azonvid%C3%A9-hubert-dossa-aa57bb1a1)** - Contributeur, Bénin
-  * **[LOKONON Jérémie](https://www.linkedin.com/in/jérémie-lokonon-176820225)** - Contributeur, Bénin
-  * **[BORNA Yannis](https://www.linkedin.com/in/yannis-borna-181049269)** - Contributeur, Bénin
-  * **[Léonel VODOUNOU](https://www.linkedin.com/in/léonel-junior-vodounou-7864b0210)** - Contributeur, Bénin
-  * **[AKANHO Naofal](https://www.linkedin.com/in/naofal-akanho-642179213/)** - Contributeur, Bénin
-  * **[OUSSA Donatien](https://www.linkedin.com/in/donatien-oussa-80269b268/)** - Contributeur, Bénin
-  * **[GANDONOU Pamela](https://www.linkedin.com/in/pamela-gandonou-b6986a265)** - Contributeur, Bénin
-  * **[HOUNTON Johannes](https://www.linkedin.com/in/johannes-hounton-a87954271)** - Contributeur, Bénin
-  * **[MINABA Carine](https://www.linkedin.com/in/carine-minaba-116433280/)** - Contributeur, Bénin
-  * **[ABOUDOU ALI Faoziath](https://www.linkedin.com/in/faoziath-aboudou-ali)** - Contributeur, Bénin
+ 
