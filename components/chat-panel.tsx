@@ -41,9 +41,9 @@ export function ChatPanel({
       "message": "Quelles sont les étapes pour obtenir l'acte de naissance sécurisé ?"
     },
     {
-      "heading": "Permis de conduire",
-      "subheading": "Quelles sont les étapes pour obtenir le permis ?",
-      "message": "Étapes pour avoir le permis de conduire"
+      "heading": "Succession selon la loi",
+      "subheading": "Quelles sont les règles de succession selon la loi ?",
+      "message": "Quelles sont les règles de succession selon la loi ?"
     },
     {
       "heading": "Mon passeport",

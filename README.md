@@ -1,10 +1,11 @@
 <a href="https://chat.vercel.ai/">
 <img alt="Assistant de Service Public - Bénin" src="./img/image.png">
-<h1 align="center">Assistant de Service Public - Bénin</h1>
+
+<h1 align="center">VEENGE MAAN CHATBOT</h1>
 </a>
 
 <p align="center">
-Un assistant de service public utilisant l'IA, développé avec Next.js, et entraîné sur les données des services publics du Bénin, dans le cadre de la deuxième édition de l'Africa Tech Up Tour.
+
 </p>
 
 <p align="center">
@@ -55,10 +56,10 @@ npm run dev
 
 Votre application devrait maintenant être accessible à l'adresse [localhost:3000](http://localhost:3000/).
 
-## Auteurs
-
-Ce projet a été développé par une équipe de data scientists issus du Bénin, du Burkina Faso, et du Togo, dans le cadre de la deuxième édition de l'Africa Tech Up Tour. Notre objectif est de faciliter l'accès aux services publics au Bénin grâce à l'intelligence artificielle.
 
 * *Membres de l'équipe* :
   * **[OUEDRAOGO WENDTOIN ISSAKA]( https://www.linkedin.com/in/wendtoinissaka)** - Contributeur, Burkina Faso
  
+
+
+ <img alt="Assistant de Service Public - Bénin" src="./img/image1.png">
