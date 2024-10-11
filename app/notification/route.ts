@@ -1,58 +1,61 @@
-// app/api/notifications/route.ts
-export async function GET() {
-  try {
-    const res = await fetch(`${process.env.API_BASE_URL}/notifications`);
-    
-    if (!res.ok) {
-      return new Response(JSON.stringify({ message: 'Failed to fetch notifications' }), {
-        status: res.status,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
+'use server'
 
-    const notifications = await res.json();
+import axios from 'axios'
+import { z } from 'zod'
 
-    return new Response(JSON.stringify(notifications), {
-      headers: { 'Content-Type': 'application/json' },
-    });
-  } catch (error) {
-    return new Response(JSON.stringify({ message: 'Internal Server Error' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
+// Interface pour le résultat de l'inscription
+interface SignupResult {
+  status?: string
+  errorMessage?: string
 }
 
-export async function POST(req: Request) {
+// Schéma pour valider les données du formulaire
+const signupSchema = z.object({
+  email: z.string().email().optional(),   // L'email est optionnel mais doit être valide s'il est fourni
+  numero: z.string().min(8).optional(),   // Le numéro est aussi optionnel, mais doit avoir un minimum de 8 caractères
+})
+
+// Fonction pour appeler l'API Flask et inscrire un utilisateur
+export async function signupNotification(formData: FormData): Promise<SignupResult> {
   try {
-    const data = await req.json();
-    const { email, numero } = data; // Assurez-vous que ce sont les bons champs
+    const email = formData.get('email')?.toString()
+    const numero = formData.get('numero')?.toString()
 
-    const res = await fetch(`${process.env.API_BASE_URL}/notification_signup`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, numero }),
-    });
+    // Valider les données reçues
+    const parsedData = signupSchema.safeParse({ email, numero })
 
-    if (!res.ok) {
-      return new Response(JSON.stringify({ message: 'Failed to sign up for notifications' }), {
-        status: res.status,
-        headers: { 'Content-Type': 'application/json' },
-      });
+    if (!parsedData.success) {
+      return {
+        errorMessage: "Les informations saisies sont invalides.",
+      }
     }
 
-    return new Response(JSON.stringify({ message: 'Inscription réussie' }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    // Vérifier que l'un des deux champs est rempli
+    if (!email && !numero) {
+      return {
+        errorMessage: "Au moins un des champs (email ou numéro) est requis.",
+      }
+    }
+
+    // URL de l'API
+    const apiUrl = `${process.env.API_BASE_URL}/notification_signup`
+
+    // Appel à l'API (requête POST)
+    const response = await axios.post(apiUrl, {
+      email: parsedData.data.email,
+      numero: parsedData.data.numero,
+    })
+
+    return {
+      status: response.data.status,
+    }
   } catch (error) {
-    return new Response(JSON.stringify({ message: 'Internal Server Error' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    console.error('Erreur lors de l\'inscription :', error)
+    return {
+      errorMessage: "Erreur de connexion. Veuillez réessayer.",
+    }
   }
 }
-
 
 
 
