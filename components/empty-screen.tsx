@@ -14,6 +14,7 @@ export function EmptyScreen() {
         <p className="leading-normal text-muted-foreground">
           Ce chatbot est conçu pour vous aider à comprendre vos droits et les lois qui vous concernent en tant que citoyen du Burkina Faso. posez vos questions et obtenez des réponses précises sur les droits civils, le droit du travail, les procédures et démarches juridiques et administratives, et bien plus. Informez-vous facilement et en toute confiance !
         </p>
+        <p>Je suis encore en phase d'entraînement alors n'hésitez pas à me corriger si je me trompe, cela me permettra d'être encore meilleur la prochaine fois.</p>
 
         <p className="leading-normal text-muted-foreground">
 
